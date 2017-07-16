@@ -6,19 +6,77 @@
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>java-server-faces</name>
+
+	<!-- <repositories> <repository> <id>prime-repo</id> <name>Prime Repo</name> 
+		<url>http://repository.primefaces.org</url> </repository> </repositories> -->
+
 	<dependencies>
 
 		<!-- JSF -->
+
+		<!-- MYFACES <dependency> <groupId>org.apache.myfaces.core</groupId> <artifactId>myfaces-api</artifactId> 
+			<version>2.2.12</version> </dependency> <dependency> <groupId>org.apache.myfaces.core</groupId> 
+			<artifactId>myfaces-impl</artifactId> <version>2.2.12</version> </dependency> -->
+
+		<!-- MOJARRA -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>2.2.14</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
 			<version>2.2.14</version>
+		</dependency>
+
+		<!-- JSF 2 component libraries -->
+		<!-- primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.primefaces.themes</groupId> <artifactId>bluesky</artifactId> 
+			<version>1.0.10</version> </dependency> -->
+
+		<!--bootsfaces -->
+		<dependency>
+			<groupId>net.bootsfaces</groupId>
+			<artifactId>bootsfaces</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<!--butterfaces -->
+		<dependency>
+			<groupId>de.larmic.butterfaces</groupId>
+			<artifactId>components</artifactId>
+			<version>2.1.20</version>
+		</dependency>
+
+		<!--omnifaces -->
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+		<!-- cdi-api REQUERIDA por omnifaces 2 -->
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!-- weld es la RI de CDI-API -->
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>2.4.4.Final</version>
 		</dependency>
 
 	</dependencies>

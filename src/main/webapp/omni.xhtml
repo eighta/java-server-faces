@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+		<h3>Please fill out all of those fields.</h3>
+		<p>
+			Of course, don't fill them in order to see the
+			<code>&lt;o:highlight&gt;</code>
+			in action.
+		</p>
+
+		<h:panelGrid columns="3">
+			<o:outputLabel for="input1" value="Foo" />
+			<h:inputText id="input1" required="true" />
+			<h:message for="input1" />
+
+			<o:outputLabel for="input2" value="Bar" />
+			<h:inputText id="input2" required="true" />
+			<h:message for="input2" />
+
+			<o:outputLabel for="input3" value="Baz" />
+			<h:inputText id="input3" required="true" />
+			<h:message for="input3" />
+
+			<h:panelGroup />
+			<h:commandButton value="submit">
+				<f:ajax execute="@form" render="@form" />
+			</h:commandButton>
+			<h:panelGroup>
+				<h:outputText value="OK!"
+					rendered="#{facesContext.postback and not facesContext.validationFailed}" />
+			</h:panelGroup>
+		</h:panelGrid>
+	</h:form>
+
+	<o:highlight />
+
+
+</h:body>
+
+</html>

@@ -8,27 +8,32 @@ public class HelloManagedBean {
 
 	public String getMessage() {
 		
-		System.out.println("->" + HelloManagedBean.class.getPackage().getSpecificationTitle());
-		
-		System.out.println(FacesContext.getCurrentInstance() );
-		
+		System.out.println("=FacesContext=");
 		Package p = FacesContext.class.getPackage();
-		System.out.println(p.getSpecificationTitle() + " " + p.getSpecificationVersion());
-		System.out.println(p.getImplementationTitle() + " " + p.getImplementationVersion());
-		
-		System.out.println(p.getImplementationVendor());
+		System.out.println(">>Specification");
+		System.out.println(p.getSpecificationTitle());
+		System.out.println(p.getSpecificationVersion());
 		System.out.println(p.getSpecificationVendor());
+		System.out.println(">>Implementation");
+		System.out.println(p.getImplementationTitle()); 
+		System.out.println(p.getImplementationVersion());
+		System.out.println(p.getImplementationVendor());
+		
 	
 		//returns the major version (2.1)
-		System.out.println(FacesContext.class.getPackage().getImplementationVersion());
+		//System.out.println(FacesContext.class.getPackage().getImplementationVersion());
 
+		/*
+		MOJARRA
+		System.out.println("=using Package.getPackage(\"com.sun.faces\")");
+		
 		//returns the specification version (2.1)
 		System.out.println(Package.getPackage("com.sun.faces").getSpecificationVersion());
 
 		//returns the minor implementation version (2.1.x)
 		System.out.println(Package.getPackage("com.sun.faces").getImplementationVersion());
 		
-		
+		*/
 		
 	      return "Hello From ManagedBean! " + FacesContext.class.getPackage().getImplementationVersion();
 	   }
