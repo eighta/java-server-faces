@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<h:form>
+
+		<p:panel id="basic" header="Header panel"
+			style="margin-bottom:20px; width:800px;">
+
+			<h:panelGrid id="grid" columns="3" cellpadding="5">
+
+				<p:outputLabel for="custom" value="Custom:" />
+				<p:inputText id="custom" value="#{prime.custom}">
+					<f:converter converterId="customConverter" />
+					<f:validator validatorId="customValidator" />
+				</p:inputText>
+				<p:message for="custom" display="text" />
+				
+
+				<p:outputLabel for="numero" value="Número:" />
+				<p:inputText id="numero" value="#{prime.numero}">
+				</p:inputText>
+				<p:message for="numero" display="text" />
+
+
+				<p:outputLabel for="year" value="Año de nacimiento:" />
+				<p:inputText id="year" required="true" value="#{prime.year}">
+					<f:validator validatorId="upperYearValidator" />
+					<f:converter converterId="yearConverter" />
+				</p:inputText>
+				<p:message for="year" display="text" />
+
+			</h:panelGrid>
+
+		</p:panel>
+
+		<p:commandButton id="submitButton" value="Submit" update="basic" />
+	</h:form>
+</h:body>
+</html>
