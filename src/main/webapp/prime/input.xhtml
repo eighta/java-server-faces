@@ -23,6 +23,7 @@
 				<p:inputText id="custom" value="#{prime.custom}">
 					<f:converter converterId="customConverter" />
 					<f:validator validatorId="customValidator" />
+					 <f:ajax event="change" listener=""/>
 				</p:inputText>
 				<p:message for="custom" display="text" />
 				
@@ -45,6 +46,8 @@
 		</p:panel>
 
 		<p:commandButton id="submitButton" value="Submit" update="basic" />
+		<p:commandButton id="submitButton-immediate" value="Submit-immediate" update="basic" immediate="true"
+			/>
 	</h:form>
 </h:body>
 </html>

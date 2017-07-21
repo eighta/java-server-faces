@@ -12,8 +12,8 @@ public class Motor {
 		return "no problem";
 	}
 	
-	public boolean hasError() {
-		return false;
+	public boolean getError() {
+		return !(((Integer)value ) > 10); 
 	}
 
 	public Integer getValue() {

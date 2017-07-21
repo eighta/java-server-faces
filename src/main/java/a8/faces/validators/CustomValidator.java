@@ -17,9 +17,10 @@ public class CustomValidator implements Validator {
 	public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
 		System.out.println("CustomValidator.validate()");
 		
+		if( ((Integer)value ) > 10 ) return;
 		
 		String tabelaCompetenciasId = ComponentUtils.findComponentClientId("engine");
-		final FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Error!");
+		final FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "CustomValidator-sum", "CustomValidator-det");
 		FacesContext.getCurrentInstance().addMessage(tabelaCompetenciasId , facesMsg);
 		throw new ValidatorException(facesMsg,new RuntimeException());
 		/*OK

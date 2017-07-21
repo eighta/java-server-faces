@@ -27,33 +27,35 @@
            		Row Editing
        		</f:facet>
 
-			<p:column headerText="Engine">
+			<p:column headerText="Engine" styleClass="ui-state-error">
 
-					<p:cellEditor>
+					<p:cellEditor id="engineEditor">
 						<f:facet name="output">
 							<h:outputText value="#{car.engine.value}">
-							
+
 							</h:outputText>
 						</f:facet>
 						<f:facet name="input">
-							<p:inputText id="engine" value="#{car.engine.value}" style="width:96%">
+							<p:inputText id="engine" value="#{car.engine.value}"
+								style="width:96%">
 								<!-- 
 								<f:converter converterId="engineConverter"/>
 								 -->
-								 <f:validator validatorId="customValidator" />
+								<f:validator validatorId="customValidator" />
 							</p:inputText>
-							<h:message for="engine"/>
-							
-							
-							<p:tooltip for="engine">
-								<!-- 
-    							<p:message for="engine"/>
-    							-->
-    							error MOTOR
+							<!-- NOT WORK
+							<p:message for="engine" display="tooltip" />
+							 -->
+							<p:tooltip for="engine" rendered="#{!car.engine.error}">
+								error
 							</p:tooltip>
-							
+
 						</f:facet>
 					</p:cellEditor>
+					
+					<p:tooltip for="engineEditor" >
+								TOOLTIP FOR engineEditor 
+					</p:tooltip>
 
 				</p:column>
 
