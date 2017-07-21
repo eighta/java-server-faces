@@ -3,6 +3,9 @@ package a8.faces.model;
 import java.time.Year;
 
 public class Car {
+	
+	private Motor engine;
+	
 	private Integer id;
 	private Year year;
 	private String brand;
@@ -13,6 +16,8 @@ public class Car {
 		this.year=year;
 		this.brand=brand;
 		this.color=color;
+		
+		this.engine = new Motor();
 	}
 	public Integer getId() {
 		return id;
@@ -37,5 +42,11 @@ public class Car {
 	}
 	public void setColor(String color) {
 		this.color = color;
+	}
+	public Motor getEngine() {
+		return engine;
+	}
+	public void setEngine(Motor engine) {
+		this.engine = engine;
 	}
 }

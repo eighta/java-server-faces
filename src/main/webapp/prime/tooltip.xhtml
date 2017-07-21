@@ -8,7 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-
+	<!-- https://stackoverflow.com/questions/25145363/how-to-get-rid-of-empty-tooltips-while-displaying-error-messages-on-tooltips-in -->
 </h:head>
 
 <h:body>
@@ -20,8 +20,8 @@
 			<h:panelGrid id="grid" columns="2" cellpadding="5">
 
 				<p:outputLabel for="numero" value="Número:" />
-				<p:inputText id="numero" value="#{prime.numero}"
-					required="true">
+				<p:inputText id="numero" value="#{prime.numero}">
+					<f:validator validatorId="customValidator" />
 				</p:inputText>
 				
 				<p:tooltip for="numero">

@@ -14,6 +14,8 @@
 <h:body>
 	<h:form>
 
+		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
 		<p:panel id="basic" header="Header panel" footer="Footer panel" 
 			
 			style="margin-bottom:20px; width:300px;">
@@ -24,6 +26,36 @@
 				<f:facet name="header">
            		Row Editing
        		</f:facet>
+
+			<p:column headerText="Engine">
+
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{car.engine.value}">
+							
+							</h:outputText>
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="engine" value="#{car.engine.value}" style="width:96%">
+								<!-- 
+								<f:converter converterId="engineConverter"/>
+								 -->
+								 <f:validator validatorId="customValidator" />
+							</p:inputText>
+							<h:message for="engine"/>
+							
+							
+							<p:tooltip for="engine">
+								<!-- 
+    							<p:message for="engine"/>
+    							-->
+    							error MOTOR
+							</p:tooltip>
+							
+						</f:facet>
+					</p:cellEditor>
+
+				</p:column>
 
 				<p:column headerText="Id">
 
