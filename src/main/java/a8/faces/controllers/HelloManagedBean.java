@@ -1,11 +1,27 @@
 package a8.faces.controllers;
 
+import java.time.Year;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+
+import a8.faces.model.Car;
 
 @ManagedBean(name = "helloManagedBean", eager = true)
 public class HelloManagedBean {
 
+	private List<Car> cars; 
+	
+	@PostConstruct
+	public void postConstruct(){
+		cars = new ArrayList<>();
+		cars.add(new Car(1,Year.of(2017),"Renault","Black"));
+		cars.add(new Car(2,Year.of(2017),"Chevrolet","White"));
+	}
+	
 	public String getMessage() {
 		
 		System.out.println("=FacesContext=");
@@ -37,5 +53,15 @@ public class HelloManagedBean {
 		
 	      return "Hello From ManagedBean! " + FacesContext.class.getPackage().getImplementationVersion();
 	   }
+
+
+	public List<Car> getCars() {
+		return cars;
+	}
+
+
+	public void setCars(List<Car> cars) {
+		this.cars = cars;
+	}
 	
 }

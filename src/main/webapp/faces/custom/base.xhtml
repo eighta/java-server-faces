@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body>
+	<h:dataTable 
+		value="#{helloManagedBean.cars}" var="c"
+		styleClass="employeeTable"
+   		headerClass="employeeTableHeader"
+   		rowClasses="employeeTableOddRow,employeeTableEvenRow">
+		<h:column>
+			<f:facet name="header">Id</f:facet>
+    		#{c.id}
+    	</h:column>
+    	
+    	<h:column>
+			<f:facet name="header">Brand</f:facet>
+    		#{c.brand}
+    	</h:column>
+    	<h:column>
+			<f:facet name="header">Year</f:facet>
+    		#{c.year}
+    	</h:column>
+    	<h:column>
+			<f:facet name="header">Color</f:facet>
+    		#{c.color}
+    	</h:column>
+
+	</h:dataTable>
+</h:body>
+</html>
