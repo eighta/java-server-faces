@@ -6,16 +6,49 @@
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>java-server-faces</name>
-
+ 
 	<properties>
-		<!-- FIXBUG EN ECLIPSE (supuestamente)-->
+		<!-- FIXBUG EN ECLIPSE (supuestamente) -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<!-- <repositories> <repository> <id>prime-repo</id> <name>Prime Repo</name> 
-		<url>http://repository.primefaces.org</url> </repository> </repositories> -->
+<!--
+	FALLA POR EL PROXY
+	https://stackoverflow.com/questions/31191007/how-to-configure-maven-wagon
+ 
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>https://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+-->
 
 	<dependencies>
+	
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- JSP Library -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- JSTL Library -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.1.2</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<!-- JSF -->
 
