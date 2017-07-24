@@ -20,6 +20,7 @@ public class HelloManagedBean {
 		cars = new ArrayList<>();
 		cars.add(new Car(1,Year.of(2017),"Renault","Black"));
 		cars.add(new Car(2,Year.of(2017),"Chevrolet","White"));
+		
 	}
 	
 	public String getMessage() {

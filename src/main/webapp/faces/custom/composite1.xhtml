@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:custom="http://java.sun.com/jsf/composite/composites"
+	xmlns:custom-annotation="http://faces.8a/custom"
+	>
+
+<h:head>
+	<!-- http://courses.coreservlets.com/Course-Materials/pdf/jsf/jsf2/JSF2-Composite-Components-1.pdf -->
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body>
+
+	<!-- call to a composite component -->
+	<custom:salida />
+
+	<h:dataTable value="#{helloManagedBean.cars}" var="c"
+		styleClass="employeeTable" headerClass="employeeTableHeader"
+		rowClasses="employeeTableOddRow,employeeTableEvenRow">
+		
+		<!-- ID -->
+		<!-- 
+		<h:column>
+			<f:facet name="header">Id</f:facet>
+    		#{c.id}
+    	</h:column>
+    	 -->
+    	<custom-annotation:column/>
+    		
+
+		<!-- BRAND -->
+		<!-- NOT WORKING
+		<h:column>
+			<f:facet name="header">Brand</f:facet>
+    		#{c.brand}
+    	</h:column>
+    	-->
+    	<custom:column-java>
+    		<h:outputText value="(OUTER-BRAND)"/>
+    	</custom:column-java>
+		
+		<!-- YEAR  -->
+		<!-- NOT WORKING
+    	<h:column>
+			<f:facet name="header">Year</f:facet>
+    		#{c.year}
+    	</h:column>
+    	-->
+		<custom:column />
+
+		<!-- COLOR -->
+		<!--  
+    	<h:column>
+			<f:facet name="header">Color</f:facet>
+    		#{c.color}
+    	</h:column>
+    	 -->
+		<h:column>
+			<custom:column-inside field="#{c.color}" />
+			<h:outputText value="(OUTER-COLOR)"/>
+		</h:column>
+
+	</h:dataTable>
+</h:body>
+</html>
